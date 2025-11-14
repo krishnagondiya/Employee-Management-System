@@ -1,0 +1,44 @@
+                  Tables Overview:
+                --------------------
+1. User
+
+    id int (ai) pk
+    username  char
+    password varchar(50)
+    email varchar(50)
+    role varchar(50)
+
+2. Employee
+
+    id int (ai) pk
+    user fk(user)
+    name char
+    department fk(department)
+    Designation char
+    salary int 
+    mobile int
+    dt_join date
+    address varchar(250)
+
+3. Department
+
+    id	int (ai) pk
+    name Char
+    description	varchar(300)
+
+4. LeaveRequest
+
+    id	int (ai) pk
+    employee fk(Employee)
+    from_date date	Leave start
+    to_date	 date	Leave end
+    reason	varchar(50)	
+    status	Char [Pending / Approved / Rejected]
+
+5. SalaryRecord
+
+    id	int (ai) pk
+    employee fk(Employee)
+    month	char	
+    amount	int	
+    status	Char [Paid / Pending]
