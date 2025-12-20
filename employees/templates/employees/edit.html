@@ -1,0 +1,58 @@
+{% extends "accounts/base.html" %}
+{% block title %}Edit Employee{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <a href="{% url 'employees:detail' employee.pk %}" class="btn btn-link">&larr; Back</a>
+
+  <div class="card mt-2 p-4">
+    <h4 class="mb-3">Edit Employee</h4>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="mb-3">
+        <label class="form-label">User</label>
+        {{ form.user }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        {{ form.name }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Department</label>
+        {{ form.department }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Designation</label>
+        {{ form.designation }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Salary</label>
+        {{ form.salary }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Mobile</label>
+        {{ form.mobile }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Date Joined</label>
+        {{ form.dt_join }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Address</label>
+        {{ form.address }}
+      </div>
+
+      <button class="btn btn-success">Save Changes</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

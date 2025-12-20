@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+<h3>Salary Records</h3>
+
+<a href="{% url 'salary:add' %}" class="btn btn-primary mb-3">Add Salary</a>
+
+<ul>
+  {% for s in salaries %}
+    <li>{{ s.employee.name }} - ₹{{ s.amount }}</li>
+  {% empty %}
+    <li>No salary records</li>
+  {% endfor %}
+</ul>
+{% endblock %}

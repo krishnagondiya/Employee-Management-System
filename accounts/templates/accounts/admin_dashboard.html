@@ -1,0 +1,62 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <h3 class="mb-4">Admin Dashboard</h3>
+
+    <div class="row g-4">
+
+        <!-- Employees -->
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Total Employees</h6>
+                    <h2>{{ employee_count }}</h2>
+                    <a href="{% url 'employees:list' %}" class="btn btn-sm btn-primary mt-2">
+                        View Employees
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Departments -->
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Departments</h6>
+                    <a href="{% url 'departments:list' %}" class="btn btn-sm btn-success mt-4">
+                        Manage
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaves -->
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Leave Requests</h6>
+                    <a href="{% url 'leaves:list' %}" class="btn btn-sm btn-warning mt-4">
+                        Review
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary -->
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Salary</h6>
+                    <a href="{% url 'salary:list' %}" class="btn btn-sm btn-info mt-4">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

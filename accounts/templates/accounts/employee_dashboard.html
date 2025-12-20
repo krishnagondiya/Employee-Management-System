@@ -1,0 +1,39 @@
+{% extends "accounts/base.html" %}
+{% block title %}Employee Dashboard{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <h3>Employee Dashboard</h3>
+  <p class="text-muted">Hello, {{ request.user.username }}</p>
+
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="card card-compact p-3">
+        <h6>Profile</h6>
+        {% if employee %}
+          <div class="fw-bold">{{ employee.name }}</div>
+          <div class="muted">{{ employee.designation }}</div>
+          <a class="btn btn-sm btn-outline-primary mt-2" href="{% url 'employees:detail' employee.pk %}">View Profile</a>
+        {% else %}
+          <p class="text-muted">No employee profile found. Contact admin to create one.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-compact p-3">
+        <h6>Leaves</h6>
+        <p class="muted">Apply or view leave requests.</p>
+        <a class="btn btn-sm btn-primary" href="#" onclick="alert('Leave module not implemented yet')">My Leaves</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-compact p-3">
+        <h6>Salary</h6>
+        <p class="muted">View salary records.</p>
+        <a class="btn btn-sm btn-primary" href="#" onclick="alert('Salary module not implemented yet')">My Salary</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

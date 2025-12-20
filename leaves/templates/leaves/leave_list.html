@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+<h3>Leave Requests</h3>
+
+<a href="{% url 'leaves:add' %}" class="btn btn-primary mb-3">Add Leave</a>
+
+<ul>
+  {% for leave in leaves %}
+    <li>{{ leave.reason }}</li>
+  {% empty %}
+    <li>No leave requests</li>
+  {% endfor %}
+</ul>
+{% endblock %}

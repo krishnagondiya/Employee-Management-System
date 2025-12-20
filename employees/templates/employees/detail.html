@@ -1,0 +1,39 @@
+{% extends "accounts/base.html" %}
+{% block title %}Employee Detail{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <a href="{% url 'employees:list' %}" class="btn btn-link">&larr; Back to list</a>
+
+  <div class="card mt-2 p-3">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h4>{{ employee.name }}</h4>
+        <div class="muted">{{ employee.designation }}</div>
+      </div>
+      <div>
+        {% if request.user.role == 'Admin' %}
+          <a class="btn btn-sm btn-secondary" href="{% url 'employees:edit' employee.pk %}">Edit</a>
+          <a class="btn btn-sm btn-danger" href="{% url 'employees:delete' employee.pk %}">Delete</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>User:</strong> {{ employee.user.username }}</p>
+        <p><strong>Department:</strong> {% if employee.department %}{{ employee.department.name }}{% endif %}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Salary:</strong> {{ employee.salary }}</p>
+        <p><strong>Mobile:</strong> {{ employee.mobile }}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Joined:</strong> {{ employee.dt_join }}</p>
+        <p><strong>Address:</strong> {{ employee.address }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
